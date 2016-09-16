@@ -3,16 +3,10 @@ class Foobar
   def self.baz(a)
     # Class method
     # Call with `Foobar.baz`
-  end
+    a =a.map{|i| (i.to_i)+2}
+    a = a.delete_if{|i| i%2!=0 or i>10 or (a.count(i)>1)}
 
-  def foo(b)
-    # Instance method
-    # Call with foobar_instance.foo
-  end
-
-  def bar(c)
-    # Instance method
-    # Call with foobar_instance.bar
+    a.inject{|sum,i| sum+i}
   end
 end
 
